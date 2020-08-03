@@ -1,0 +1,22 @@
+
+*, body{
+  margin: 0 auto;
+  color: #894ed3;
+  font-size: 2rem;
+}
+
+#main {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 40vw;
+}
+
+@media screen and (min-width: 300px) {
+  body {
+    width: 100%;
+  }
+}
