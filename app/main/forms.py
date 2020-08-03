@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms.validators import DataRequired, Length, Email, Regexp
 from wtforms import (
     StringField, SubmitField, TextAreaField, 
-    SelectField, SubmitField, BooleanField
+    SelectField, BooleanField
 )
 from wtforms import ValidationError
 
@@ -46,3 +46,8 @@ class EditProfileAdminForm(FlaskForm):
         if field.data != self.user.email and \
                 User.query.filter_by(email=field.data).first():
             raise ValidationError('Email already registered.')
+
+
+class PostForm(FlaskForm):
+    body = TextAreaField("What's on your mind?", validators=[DataRequired()])
+    submit = SubmitField('Submit')
