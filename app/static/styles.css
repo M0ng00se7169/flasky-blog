@@ -1,8 +1,8 @@
-body {
+/* body {
   text-align: center;
   justify-content: center;
   align-items: center;
-}
+} */
 ul.posts {
   list-style-type: none;
   padding: 0px;
@@ -39,7 +39,7 @@ div.post-content {
 }
 
 .container {
-  max-width: 40vw;
+  max-width: 80vw;
 }
 
 @media screen and (max-width: 1000px) {
