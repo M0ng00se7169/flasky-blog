@@ -117,11 +117,17 @@ class User(UserMixin, db.Model):
                 self.role = Role.query.filter_by(default=True).first()
         if self.email is not None and self.avatar_hash is None:
             self.avatar_hash = self.gravatar_hash()
+        self.follow(self)
 
     @property
     def password(self):
         raise AttributeError('password is not a readable attribute')
 
+    @property
+    def followed_posts(self):
+        return Post.query.join(Follow, Follow.followed_id == Post.author_id)\
+            .filter(Follow.follower_id == self.id)
+    
     @password.setter
     def password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -175,6 +181,14 @@ class User(UserMixin, db.Model):
         user.password = new_password
         db.session.add(user)
         return True
+
+    @staticmethod
+    def add_self_follows():
+        for user in User.query.all():
+            if not user.is_following(user):
+                user.follow(user)
+                db.session.add(user)
+                db.session.commit()
 
     def generate_email_change_token(self, new_email, expiration=3600):
         s = Serializer(current_app.config['SECRET_KEY'], expiration)
