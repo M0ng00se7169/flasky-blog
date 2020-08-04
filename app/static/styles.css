@@ -36,6 +36,10 @@ div.post-footer {
   float: right;
 }
 
+.table.followers tr {
+  border-bottom: 1px solid #e0e0e0;
+}
+
 #main {
   text-align: center;
   justify-content: center;

@@ -16,7 +16,11 @@ class Config:
     FLASKY_MAIL_SENDER = 'Flasky Admin <flasky@example.com>'
     FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
     FLASK_POSTS_PER_PAGE = os.environ.get('FLASK_POSTS_PER_PAGE') or 25
+    FLASKY_FOLLOWERS_PER_PAGE = 50
+
+
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
 
     @staticmethod
     def init_app(app):
