@@ -67,7 +67,10 @@
     
         {% block page_content %}{% endblock %}
     </div>
-    {% endblock %}
+    {% if current_user.can(Permission.MODERATE) %}
+        <li><a href="{{ url_for('main.moderate') }}">Moderate Comments</a></li>
+    {% endif %}
+{% endblock %}
     
 
 
