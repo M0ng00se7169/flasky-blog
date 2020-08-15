@@ -48,7 +48,7 @@ def test(coverage, test_names):
         COV.erase()
 
 
-@app.cli_command()
+@app.cli.command()
 @click.option('--length', default=25, 
               help='Number of functions to include in the profiler report.')
 @click.option('--profiler-dir', default=None,
@@ -61,7 +61,7 @@ def profiler(length, profiler_dir):
     app.run(debug=False)
 
 
-@manager.command
+@app.cli.command()
 def deploy():
     """Run deployment tasks"""
     # migrate DB to latest version
