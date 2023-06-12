@@ -1,4 +1,4 @@
-FROM python:3.8.13-alpine
+FROM python:3.12.0b1-alpine
 
 ENV FLASK_APP flasky.py
 ENV FLASKY_CONFIG docker
