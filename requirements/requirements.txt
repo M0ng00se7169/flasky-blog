@@ -20,7 +20,7 @@ Flask-Moment==0.10.0
 Flask-PageDown==0.3.0
 Flask-SQLAlchemy==2.4.4
 Flask-WTF==0.14.3
-gunicorn==22.0.0
+gunicorn==23.0.0
 httpie==3.2.3
 idna==3.7
 itsdangerous==1.1.0
