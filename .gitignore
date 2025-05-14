@@ -2,3 +2,4 @@
 flasky/
 __pycache__/
 venv/
+.idea/
